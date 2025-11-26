@@ -2,9 +2,10 @@
 """
 Mathematical Utilities Module.
 
-This module provides simple functions for performing basic mathematical operations.
-Currently, it only contains the 'add' function for addition.
+This module provides simple functions for performing basic mathematical
+operations. Currently, it only contains the 'add' function for addition.
 """
+
 
 def add(a: float, b: float) -> float:
     """
