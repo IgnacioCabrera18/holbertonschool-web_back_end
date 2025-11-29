@@ -8,7 +8,6 @@ the wait_random coroutine.
 
 import asyncio
 
-# Import wait_random from 0-basic_async_syntax.py
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
@@ -18,8 +17,8 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
 
     :param max_delay: Maximum number of seconds for wait_random.
     :return: An asyncio.Task object.
-    
-    Examples:
+
+    Example:
     >>> import asyncio
     >>> task = task_wait_random(5)
     >>> isinstance(task, asyncio.Task)
