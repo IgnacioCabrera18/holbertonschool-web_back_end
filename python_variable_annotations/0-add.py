@@ -2,27 +2,29 @@
 """
 Mathematical Utilities Module.
 
-This module provides simple functions for performing basic mathematical
-operations. Currently, it only contains the 'add' function for addition.
+Este módulo proporciona funciones simples para operaciones matemáticas
+básicas. Incluye la función 'floor' para obtener el suelo de un número.
 """
 
+import math
 
-def add(a: float, b: float) -> float:
+
+def floor(n: float) -> int:
     """
-    Sums two floating-point numbers.
+    Devuelve el valor floor de un número flotante.
 
-    Takes two numbers (floats or integers) and returns their sum.
+    Toma un número de tipo float y retorna su parte entera inferior,
+    utilizando la función 'floor' del módulo estándar 'math'.
 
-    :param a: The first number (float).
-    :param b: The second number (float).
-    :return: The sum of 'a' and 'b' (float).
+    :param n: Número flotante del cual se quiere obtener el floor.
+    :return: El floor del número 'n' como un entero.
 
-    Examples:
-    >>> add(3.5, 2.1)
-    5.6
-    >>> add(10, 5)
-    15.0
-    >>> add(7.5, 2)
-    9.5
+    Ejemplos:
+    >>> floor(3.14)
+    3
+    >>> floor(-2.7)
+    -3
+    >>> floor(5.0)
+    5
     """
-    return a + b
+    return math.floor(n)
