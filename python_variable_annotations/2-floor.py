@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Mathematical Utilities Module.
+Math utilities module.
 
-Este módulo proporciona funciones simples para operaciones matemáticas básicas.
-Actualmente incluye la función 'floor' para obtener el suelo (floor) de un número flotante.
+This module includes simple math functions, such as 'floor'.
 """
 
 import math
@@ -11,15 +10,12 @@ import math
 
 def floor(n: float) -> int:
     """
-    Devuelve el valor floor de un número flotante.
+    Return the floor of a floating-point number.
 
-    Toma un número de tipo float y retorna su parte entera inferior,
-    utilizando la función 'floor' del módulo estándar 'math'.
+    :param n: The input float number.
+    :return: The floor of 'n' as an integer.
 
-    :param n: Número flotante del cual se quiere obtener el floor.
-    :return: El floor del número 'n' como un entero.
-
-    Ejemplos:
+    Examples:
     >>> floor(3.14)
     3
     >>> floor(-2.7)

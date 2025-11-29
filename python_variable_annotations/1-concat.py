@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 """
-String Utilities Module.
+String utilities module.
 
-Este módulo proporciona funciones simples para operaciones básicas con cadenas.
-Actualmente, contiene la función 'concat' para concatenar dos cadenas.
+This module provides simple functions for basic string operations.
+It currently includes the 'concat' function for joining two strings.
 """
 
 
 def concat(str1: str, str2: str) -> str:
     """
-    Concatena dos cadenas de texto.
+    Concatenate two strings.
 
-    Toma dos strings y devuelve una nueva cadena que es la unión de ambas,
-    en el mismo orden en que se pasan como argumentos.
+    Takes two strings and returns a new string that joins them in the
+    given order.
 
-    :param str1: La primera cadena.
-    :param str2: La segunda cadena.
-    :return: La concatenación de 'str1' y 'str2'.
+    :param str1: The first string.
+    :param str2: The second string.
+    :return: The concatenation of 'str1' and 'str2'.
 
-    Ejemplos:
-    >>> concat("Hola, ", "mundo")
-    'Hola, mundo'
+    Examples:
+    >>> concat("Hello, ", "world")
+    'Hello, world'
     >>> concat("foo", "bar")
     'foobar'
     >>> concat("", "test")
