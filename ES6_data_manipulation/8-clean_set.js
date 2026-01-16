@@ -1,10 +1,13 @@
-function cleanSet(set, startString) {
+export default function cleanSet(set, startString) {
+  if (!startString || startString.length === 0) {
+    return '';
+  }
+
   const result = [];
 
   for (const value of set) {
-    if (value.startsWith(startString)) {
-      const remainder = value.substring(startString.length);
-      result.push(remainder);
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      result.push(value.slice(startString.length));
     }
   }
 
