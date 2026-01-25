@@ -52,14 +52,15 @@ const port = 1245;
 const DATABASE = process.argv[2];
 
 const app = http.createServer(async (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-
   const { url } = req;
 
   if (url === '/') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
     res.write('This is the list of our students\n');
     try {
       const students = await countStudents(DATABASE);
@@ -67,9 +68,6 @@ const app = http.createServer(async (req, res) => {
     } catch (error) {
       res.end(error.message);
     }
-  } else {
-    res.statusCode = 404;
-    res.end();
   }
 });
 
