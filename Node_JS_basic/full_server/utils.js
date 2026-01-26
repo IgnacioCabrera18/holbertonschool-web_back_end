@@ -1,7 +1,6 @@
-const express = require('express');
-const fs = require('fs');
+import fs from 'fs';
 
-function countStudents(path) {
+function readDatabase(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
@@ -32,39 +31,9 @@ function countStudents(path) {
         }
       }
 
-      const output = [];
-      output.push(`Number of students: ${students.length}`);
-
-      const fieldKeys = Object.keys(fields);
-      for (let i = 0; i < fieldKeys.length; i++) {
-        const field = fieldKeys[i];
-        const names = fields[field];
-        output.push(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
-      }
-
-      resolve(output);
+      resolve(fields);
     });
   });
 }
 
-const app = express();
-const port = 1245;
-const DATABASE = process.argv[2];
-
-app.get('/', (req, res) => {
-  res.send('Hello Holberton School!');
-});
-
-app.get('/students', async (req, res) => {
-  res.write('This is the list of our students\n');
-  try {
-    const students = await countStudents(DATABASE);
-    res.end(`${students.join('\n')}`);
-  } catch (error) {
-    res.end(error.message);
-  }
-});
-
-app.listen(port);
-
-module.exports = app;
+export default readDatabase;
