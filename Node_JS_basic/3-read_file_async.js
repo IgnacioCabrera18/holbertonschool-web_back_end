@@ -8,27 +8,36 @@ function countStudents(path) {
         return;
       }
 
-      const lines = data.toString().split('\n');
-      let students = lines.filter((item) => item);
-      students = students.map((item) => item.split(','));
+      const lines = data.split('\n').filter((line) => line.trim() !== '');
 
-      const NUMBER_OF_STUDENTS = students.length ? students.length - 1 : 0;
-      console.log(`Number of students: ${NUMBER_OF_STUDENTS}`);
+      if (lines.length <= 1) {
+        reject(new Error('Cannot load the database'));
+        return;
+      }
 
+      const students = lines.slice(1);
       const fields = {};
-      for (const i in students) {
-        if (i !== '0') {
-          if (!fields[students[i][3]]) fields[students[i][3]] = [];
-          fields[students[i][3]].push(students[i][0]);
+
+      for (let i = 0; i < students.length; i++) {
+        const line = students[i].split(',');
+        const firstname = line[0];
+        const field = line[3];
+
+        if (firstname && field) {
+          if (!fields[field]) {
+            fields[field] = [];
+          }
+          fields[field].push(firstname);
         }
       }
 
-      delete fields.field;
+      console.log(`Number of students: ${students.length}`);
 
-      for (const key of Object.keys(fields)) {
-        console.log(
-          `Number of students in ${key}: ${fields[key].length}. List: ${fields[key].join(', ')}`,
-        );
+      const fieldKeys = Object.keys(fields);
+      for (let i = 0; i < fieldKeys.length; i++) {
+        const field = fieldKeys[i];
+        const names = fields[field];
+        console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
       }
 
       resolve();
